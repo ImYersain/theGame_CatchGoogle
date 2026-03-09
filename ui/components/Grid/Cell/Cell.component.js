@@ -10,7 +10,6 @@ export function CellComponent(x, y) {
     let observer = (e) => {
         if([EVENTS.GOOGLE_JUMPED, EVENTS.PLAYER1_MOVED, EVENTS.PLAYER2_MOVED].every(name => name !== e.name)) return;
 
-        // support both prevPosition and oldPosition naming from different parts of the code
         const prev = e.payload && (e.payload.prevPosition || e.payload.oldPosition);
         const next = e.payload && (e.payload.newPosition || e.payload.newPosition);
 
@@ -34,7 +33,7 @@ async function render(element, x, y, localState) {
 
     localState.rendering = true;
     element.innerHTML = '';
-    
+
     const googlePosition = await getGooglePosition();
     const player1Position = await getPlayersPosition(1);
     const player2Position = await getPlayersPosition(2);

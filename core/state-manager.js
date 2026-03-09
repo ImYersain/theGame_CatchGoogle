@@ -248,7 +248,7 @@ export const changeSettingsPointsToLose = async (newPointsToLose) => {
 }
 
 export const changeSettingsHandleSound = async (soundEnabled) => {
-    _state.settings.soundsEnabled = soundEnabled;
+    _state.settings.soundsEnabled = !!soundEnabled;
     _notifyObservers(EVENTS.SETTINGS_CHANGED);
 }
 

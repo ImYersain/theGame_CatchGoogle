@@ -13,7 +13,7 @@ export function ResultPanelComponent() {
 
     render(element);
 
-    return {element, unsubscribe: () => observer(element)} 
+    return {element, unsubscribe: () => unsubscribe(observer)} 
 }
 
 

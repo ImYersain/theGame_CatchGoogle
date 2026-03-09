@@ -39,7 +39,6 @@ async function render(element, localState) {
         case GAME_STATUS.SETTINGS: {
             const settingsComponent = SettingsComponent();
             const startButtonComponent = StartButtonComponent();
-            // ensure settings cleanup is called on re-render
             localState.cleanupFunctions.push(settingsComponent.cleanup || (() => {}));
             element.append(settingsComponent.element, startButtonComponent.element);
             break;
@@ -50,17 +49,10 @@ async function render(element, localState) {
             const resultPanelComponent = ResultPanelComponent();
             const timerComponent = TimerComponent();
             localState.cleanupFunctions.push(gridComponent.cleanup, resultPanelComponent.unsubscribe, timerComponent.cleanup, settingsComponent.cleanup || (() => {}));
-            console.log('GRID CREATING')
 
             element.append(settingsComponent.element, resultPanelComponent.element, timerComponent.element, timerComponent.element, gridComponent.element);
             break;
         }
-        // case GAME_STATUS.PAUSE:
-            
-        //     break;
-        // case GAME_STATUS.IN_PROGRESS:
-            
-        //     break;
         case GAME_STATUS.LOSE:
             const loseComponent = LoseComponent();
             element.append(loseComponent.element);
