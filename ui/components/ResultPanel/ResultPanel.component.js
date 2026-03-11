@@ -1,6 +1,5 @@
 import { EVENTS } from "../../../core/constants.js";
 import { getGoogleScore, getPlayerScore, subscribe, unsubscribe } from "../../../core/state-manager.js";
-import { TimerComponent } from "../Timer/Timer.component.js";
 
 export function ResultPanelComponent() {
     const element = document.createElement('div');
